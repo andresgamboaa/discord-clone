@@ -1,0 +1,15 @@
+<div class="flex flex-col items-center gap-3 p-2 w-[60px] h-full bg-discord-400 select-none z-10">
+    <button class="group bg-discord-100 hover:bg-green-800 flex justify-center items-center rounded-md cursor-pointer w-[40px] h-[40px] relative">
+        <span class="text-4xl mb-[6px] text-green-400">+</span>
+        <div class="absolute z-20 w-fit whitespace-nowrap hidden group-hover:block rounded-md p-2 text-sm left-11 top-1 text-white bg-gray-700">Create new server</div>
+    </button>
+    <hr class="border border-gray-600 w-full rounded-sm">
+    <a *ngFor="let server of servers" 
+        routerLink="/servers/{{server.id}}"
+        class="group hover:bg-red-500 rounded-md cursor-pointer bg-discord-100 w-[40px] h-[40px] relative flex items-center"
+    >
+        <div class="absolute  z-20 h-8 w-[4px] bg-gray-400 left-[-10px] rounded-md" [ngClass]="currentServerId == server.id?'visible':'invisible'"></div>
+        
+        <div class="absolute  z-20 hidden group-hover:block rounded-md p-2 text-sm left-11 top-1 text-white bg-gray-700">{{ server.name }}</div>
+    </a>
+</div>

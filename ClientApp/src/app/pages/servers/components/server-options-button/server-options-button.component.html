@@ -1,0 +1,28 @@
+ <button (click)="toggle()"  class="relative w-full cursor-pointer shadow-md shadow-black-900 hover:bg-discord-100">
+    <div class="flex justify-between py-2 px-4">
+        <span class="font-bold">{{ server?.name | titlecase}}</span>
+        <span class="rotate-90">></span>
+    </div>
+    <div *ngIf="showOptions"  [@inOutAnimation] class="absolute w-full top-10 z-10 p-2">
+        <div class="flex flex-col  bg-discord-500 rounded-md shadow-md shadow-black/50 text-white/60">
+            <button (click)="showInviteCode = true"
+                class="flex justify-between hover:text-blue-500 mt-3 mx-3">
+                <span>Invite People</span>
+            </button>
+            <button class="flex justify-between hover:text-blue-500 mt-3 mx-3">
+                <span>Server Settings</span>
+            </button>
+            <button class="flex justify-between hover:text-blue-500 mt-3 mx-3">
+                <span>Manage Members</span>
+            </button>
+            <button class="flex justify-between hover:text-blue-500 mt-3 mx-3">
+                <span>Create Channel</span>
+            </button>
+            <button class="flex justify-between  border-discord-500 mt-3 border-top text-red-600 hover:text-red-500 py-2 px-3">
+                <span>Delete Server</span>
+            </button>
+        </div>
+    </div>   
+</button>
+
+<app-invite-dialog [open]="showInviteCode"/>

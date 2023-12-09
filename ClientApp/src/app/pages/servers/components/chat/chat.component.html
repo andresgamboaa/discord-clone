@@ -1,0 +1,25 @@
+<div class="flex flex-col w-full h-full">
+    <div class="flex justify-between w-full cursor-pointer shadow-md shadow-black-900 hover:bg-discord-100 py-2 px-2">
+        <span># Channel Name</span>
+        <div class="bg-emerald-600 font-bold rounded-full w-fit p-3 py-1 text-xs">Live: Real-time updates</div>
+    </div>
+
+    <div class="w-full h-full p-4 overflow-auto">
+        <div *ngFor="let message of messages"
+            class="flex w-full gap-2 mb-4"
+        >
+            <div class="bg-discord-100 w-[40px] h-[40px] rounded-full mt-1"></div>
+            <div class="flex flex-col w-full">
+                <div class="flex gap-2 items-center">
+                    <span class="font-bold">{{message.first_name}}</span>
+                    <span class="opacity-50 text-xs">{{message.date}}</span>
+                </div>
+                <span class="text-sm opacity-80">{{message.message}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-2 px-4 w-full">
+        <input class="bg-discord-100 w-full rounded-full p-2 px-4 text-white/60 font-semibold" type="text">
+    </div>
+</div>
